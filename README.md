@@ -22,7 +22,7 @@ That's because this needs to be in dependency section.
 - Create new resources directory 
 ---------------
 
-### 2. WebDriver
+## 2. WebDriver
 - Okay, so we're going to create a new class.
 	-  Under this source directory, we have a “main” directory and a “test” directory. We're going to create one under the test and we have this Java folder. We'll just right click on the Java folder, select “new" and select *“Package”.*
 	- We're going to create a package here called “base”. Inside of the base package we'll create a new Java class, and this one we'll call "BaseTests".
