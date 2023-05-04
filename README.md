@@ -141,6 +141,47 @@ public class BaseTests {
     }
 }
 ````
+---------
+## 3. Finding Web Elments
+- Let's talk about the singular one [**findElement**].
+	Since we didn't have anything really worthwhile on that page, I'm to just go with the linkText and the link’s text was “Inputs”.
+````java
+driver.findElement(By.linkText(“Inputs”);
+````
+	This will return a WebElement. And given a WebElement, we can do any type of interaction that we want on that.
+
+	Let's just store this to a variable.
+````java
+WebElement inputsLink = driver.findElement(By.linkText(“Inputs”);
+````
+	But for now, let's just say click. So, I want to find that link and then I wanted to click that link.
+````java
+WebElement inputsLink = driver.findElement(By.linkText("Input"));
+inputsLink.click();
+````
+- Let's look at the plural form of this as well [ findElements ].
+	We want to say find all of these <a> elements.
+	Notice that this method returns a list of web elements. So, we can make another variable here, List<WebElement> links, and we can
+````java
+List<WebElement> links = driver.findElements(By.tagName("a"));
+System.out.println(links.size());
+````
+- Now I want to show you what happens if you try to find an element that does not exist.
+````java
+WebElement inputsLink = driver.findElement(By.linkText("Angie"));
+````
+- We see here that we get an exception and this exception is a NoSuchElementException.
+	- If you're going to be doing test automation with WebDriver, I want you to become very comfortable with this exception because you will see it all the time. This is something that occurs when you specify that you want to find an element and it's not there.
+	- Sometimes that's because we've specified the locator incorrectly. So, if you're using something for the locator, then make sure that there's not an error there.
+	- Another common reason for this is that it's not in the right state just yet. For example, if I were to click on this and then try to count the links or said: “then find me something on the page that's not there”. If it went too fast and I was expecting it to still be on one page, but it was actually on another page that could cause the error as well.
+
+### Optional Independent Exercise
+	For this chapter, I'd like to give you an optional exercise that you can try on your own. Go to our test site, **the-internet**, and use the findElement and findElements to complete the following scenario.
+
+1. Click on the “Shifting Content” link.
+2. Then click on the first example Menu Element.
+3. Then print how many of these menu elements appear.
+---------------
 
 
 
